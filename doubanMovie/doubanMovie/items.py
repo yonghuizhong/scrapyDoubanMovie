@@ -12,8 +12,10 @@ class DoubanmovieItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     id = scrapy.Field()
+    image = scrapy.Field()
+    href = scrapy.Field()
     name = scrapy.Field()
     introduce = scrapy.Field()
     star = scrapy.Field()
     commentNum = scrapy.Field()
-    describe = scrapy.Field()
+    quote = scrapy.Field()
