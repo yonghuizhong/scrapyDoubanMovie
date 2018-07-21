@@ -6,6 +6,9 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from fake_useragent import UserAgent
+
+ua = UserAgent(path='User-Agent.json')
 
 
 class DoubanmovieSpiderMiddleware(object):
@@ -101,3 +104,9 @@ class DoubanmovieDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class my_useragent(object):
+    def process_request(self, request, spider):
+        request.headers['User-Agent'] = ua.random
+        print(request.headers)
